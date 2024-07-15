@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined HTML</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Content from the second HTML -->
+    <div class="container">
+      <h1>Stratified Sampling</h1>
+      <form id="csvForm" class="form">
+          <div class="form-group">
+              <label for="csvFile">Upload CSV File:</label>
+              <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
+          </div>
+          <div class="form-group">
+              <label for="confidenceLevel">Confidence Level (%):</label>
+              <input type="number" id="confidenceLevel" name="confidenceLevel" min="1" max="99" value="95" required>
+          </div>
+          <div class="form-group">
+              <label for="marginOfError">Margin of Error (%):</label>
+              <input type="number" id="marginOfError" name="marginOfError" min="1" max="50" value="5" required>
+          </div>
+          <button type="submit">Sample Data</button>
+      </form>
+      <div id="results" class="results"></div>
+  </div>
+
+    <div id="previewSection" style="display:none;">
+        <h1>CSV Preview</h1>
+        <table id="csvPreviewTable" border="1"></table>
+        <button onclick="downloadCSV()">Download CSV</button>
+    </div>
+
+    <!-- Content from the first HTML -->
+    <div id="step1">
+      <h1>Step 1: Enter the number of topics</h1>
+      <label for="numTopics">Number of topics:</label>
+      <input type="number" id="numTopics" name="numTopics" min="1" required>
+      <button onclick="generateTopicForms()">Next</button>
+  </div>
+
+  <div id="step2" style="display:none;">
+      <h1>Step 2: Enter details for each topic</h1>
+      <form id="topicsForm" onsubmit="processForm(event)">
+          <div id="topicsContainer"></div>
+          <button type="submit">Next</button>
+      </form>
+  </div>
+
+  <div id="step3" style="display:none;">
+      <h1>Step 3: Enter question numbers</h1>
+      <form id="questionsForm" onsubmit="processQuestions(event)">
+          <div id="questionsContainer"></div>
+          <button type="submit">Submit</button>
+      </form>
+  </div>
+
+  <div id="previewSection" style="display:none;">
+      <h1>CSV Preview</h1>
+      <table id="csvPreviewTable" border="1"></table>
+      <button onclick="downloadCSV()">Download CSV</button>
+  </div>
+
+    <!-- JavaScript scripts -->
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
+
+
+
